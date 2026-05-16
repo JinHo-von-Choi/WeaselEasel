@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제목 없음 - Weasel Easel</title>
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="/src/styles/toolbar.css" />
+  <link rel="stylesheet" href="/src/styles/canvas.css" />
+  <link rel="stylesheet" href="/src/styles/dialogs.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Menu Bar -->
+    <div id="menu-bar" class="menu-bar">
+      <div class="menu-logo">
+        <img src="/logo/logo.png" alt="Weasel Easel" class="menu-logo-img" />
+      </div>
+      <div class="menu-items" id="menu-items"></div>
+    </div>
+
+    <!-- Toolbar -->
+    <div id="toolbar" class="toolbar">
+      <div class="toolbar-tools" id="toolbar-tools"></div>
+      <div class="toolbar-separator"></div>
+      <div class="toolbar-options">
+        <div class="option-group">
+          <label class="option-label">크기</label>
+          <input type="range" id="brush-size" min="1" max="50" value="3" class="size-slider" />
+          <span id="brush-size-display" class="size-display">3px</span>
+        </div>
+        <div class="option-group">
+          <label class="option-label">채움</label>
+          <select id="fill-mode" class="fill-select">
+            <option value="stroke">윤곽</option>
+            <option value="fill">채움</option>
+            <option value="both">윤곽+채움</option>
+          </select>
+        </div>
+        <div class="toolbar-separator"></div>
+        <div class="option-group">
+          <button id="btn-undo" class="toolbar-btn" title="실행 취소 (⌘Z)" disabled>↩</button>
+          <button id="btn-redo" class="toolbar-btn" title="다시 실행 (⌘⇧Z)" disabled>↪</button>
+        </div>
+        <div class="toolbar-separator"></div>
+        <div class="option-group zoom-controls">
+          <button id="btn-zoom-out" class="toolbar-btn" title="축소">−</button>
+          <span id="zoom-display" class="zoom-display">100%</span>
+          <button id="btn-zoom-in" class="toolbar-btn" title="확대">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Color Palette Sidebar -->
+      <div id="color-sidebar" class="color-sidebar">
+        <div class="color-preview">
+          <div id="bg-color-preview" class="color-swatch bg-swatch" title="배경색"></div>
+          <div id="fg-color-preview" class="color-swatch fg-swatch" title="전경색"></div>
+          <button id="swap-colors" class="swap-btn" title="색상 교환">⇄</button>
+        </div>
+        <div id="color-palette" class="color-palette"></div>
+        <div class="custom-color">
+          <input type="color" id="custom-color-picker" value="#000000" title="사용자 정의 색상" />
+          <label for="custom-color-picker" class="custom-color-label">사용자 정의</label>
+        </div>
+      </div>
+
+      <!-- Canvas Viewport -->
+      <div id="canvas-viewport" class="canvas-viewport">
+        <div id="canvas-sizer" class="canvas-sizer">
+          <div id="canvas-stack" class="canvas-stack">
+            <canvas id="main-canvas"></canvas>
+            <canvas id="preview-canvas"></canvas>
+            <canvas id="ui-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div id="status-bar" class="status-bar">
+      <span id="status-coords" class="status-item">좌표: (0, 0)</span>
+      <span class="status-separator">|</span>
+      <span id="status-size" class="status-item">800 × 600</span>
+      <span class="status-separator">|</span>
+      <span id="status-zoom" class="status-item">100%</span>
+      <span class="status-separator">|</span>
+      <span id="status-tool" class="status-item">연필</span>
+    </div>
+  </div>
+
+  <!-- Dialogs -->
+  <div id="dialog-overlay" class="dialog-overlay hidden">
+    <div id="dialog-container" class="dialog-container"></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

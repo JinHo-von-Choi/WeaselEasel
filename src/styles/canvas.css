@@ -1,0 +1,137 @@
+/* Color Sidebar */
+.color-sidebar {
+  width: 72px;
+  background: var(--bg-ivory);
+  border-right: 1px solid var(--border-light);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.color-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.color-swatch {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border-wood);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fg-swatch {
+  background: #000000;
+  position: relative;
+  z-index: 2;
+}
+
+.bg-swatch {
+  background: #FFFFFF;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -12px;
+  margin-left: 12px;
+}
+
+.swap-btn {
+  font-size: 12px;
+  background: none;
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 4px;
+  color: var(--text-secondary);
+}
+
+.swap-btn:hover {
+  background: var(--bg-hover);
+}
+
+.color-palette {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.palette-color {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.palette-color:hover {
+  transform: scale(1.15);
+  border-color: var(--border-wood);
+  z-index: 1;
+}
+
+.custom-color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.custom-color input[type="color"] {
+  width: 40px;
+  height: 28px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 2px;
+  background: var(--bg-cream);
+}
+
+.custom-color-label {
+  font-size: 9px;
+  color: var(--text-secondary);
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Canvas Viewport */
+.canvas-viewport {
+  flex: 1;
+  overflow: auto;
+  background: var(--bg-viewport);
+  position: relative;
+}
+
+.canvas-sizer {
+  position: relative;
+  margin: 20px;
+  display: inline-block;
+}
+
+.canvas-stack {
+  position: relative;
+  transform-origin: top left;
+  box-shadow: 2px 3px 12px rgba(62, 43, 28, 0.25);
+}
+
+.canvas-stack canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.canvas-stack canvas:first-child {
+  position: relative;
+  background: white;
+}
+
+#ui-canvas {
+  cursor: crosshair;
+}
