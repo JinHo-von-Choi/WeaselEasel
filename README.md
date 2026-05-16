@@ -6,6 +6,10 @@
 
 Windows에는 그림판이 있는데 macOS에는 없다. 그래서 직접 만들었다.
 
+<p align="center">
+  <img src="screenshot.png" alt="Weasel Easel Screenshot" width="720" />
+</p>
+
 Weasel Easel은 macOS를 위한 간단한 이미지 편집 도구다. 복잡한 기능 없이, 딱 그림판 수준으로 빠르게 그리고 편집할 수 있다.
 
 ## Features
